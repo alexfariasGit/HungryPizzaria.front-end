@@ -1,0 +1,47 @@
+ 
+  <div class="container">
+
+    <h1>Pesquisa Cliente</h1>
+    <form #HungryPizzaForm="ngForm" appIdentityRevealed>
+      <div [hidden]="HungryPizzaForm.submitted">
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input id="Nome" name="Nome" class="form-control"
+                  required maxlength="150" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.nome" #Nome="ngModel" >
+  
+            <div *ngIf="Nome.invalid && (Nome.dirty || Nome.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="Nome.errors.required">
+                  Nome é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>          
+  
+        <button type="submit" class="btn btn-default"
+                [disabled]="HungryPizzaForm.invalid" (click)="alterarIncluirCliente()">Buscar</button>
+        <button type="button" class="btn btn-default"
+                (click)="HungryPizzaForm.resetForm({})">Limpar</button>
+      </div>
+  
+      <div class="submitted-message" *ngIf="HungryPizzaForm.submitted">
+        <p>You've submitted your hero, {{ HungryPizzaForm.value.name }}!</p>
+        <button (click)="HungryPizzaForm.resetForm({})">Add new hero</button>
+      </div>
+    </form>
+  </div>
+  
+  
+  <!-- 
+  Copyright Google LLC. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license
+  -->

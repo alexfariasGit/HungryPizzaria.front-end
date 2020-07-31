@@ -1,0 +1,44 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center">
+    <span class="btn btn-success float-right" routerLink="/pizzasabores-details/0">Adicionar Pizza</span>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="PizzaSaboress.length !== 0">
+    <h3 class="mb-3 text-center">Lista de Pizza</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">DESCRIÇÃO</th>           
+            <th scope="col">VALOR</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pizzasabores of PizzaSaboress">
+            <td>{{pizzasabores.idpizza}}</td>
+            <td>{{pizzasabores.descricao}}</td>            
+            <td>R$ {{pizzasabores.valores}}</td>            
+            <td *ngIf="pizzasabores.status == 1">
+              Ativo
+            </td>           
+            <td *ngIf="pizzasabores.status == 0">
+              Inativo
+            </td> 
+            <td>
+              <span class="btn btn-success" routerLink="/pizzasabores-details/{{pizzasabores.idpizza}}">Editar</span> &nbsp;              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

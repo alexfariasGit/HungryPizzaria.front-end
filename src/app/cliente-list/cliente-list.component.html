@@ -1,0 +1,40 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center">
+    <span class="btn btn-success float-right" routerLink="/cliente-details/0">Adicionar Cliente</span>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Clientes.length !== 0">
+    <h3 class="mb-3 text-center">Lista de Cliente</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>           
+            <th scope="col">TELEFONE</th>
+            <th scope="col">ENDEREÇO</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of Clientes">
+            <td>{{cliente.idcliente}}</td>
+            <td>{{cliente.nome}}</td>            
+            <td>{{cliente.telefone}}</td>            
+            <td>{{cliente.logradouro}}</td>           
+            <td>
+              <span class="btn btn-success" routerLink="/cliente-details/{{cliente.idcliente}}">Editar</span> &nbsp;
+              <span class="btn btn-danger" (click)="deletecliente(cliente.idcliente)">Apagar</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

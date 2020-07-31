@@ -1,0 +1,61 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center">
+    <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+      <div class="form-group col-md-8 text-center">
+        <label for="Telefone" class="float-center col-md-2">Telefone</label>
+        <input id="Telefone" name="Telefone" class="form-control col-md-6"
+              required maxlength="150" appForbiddenName="bob" 
+              [(ngModel)]="Pedidos.telefone" #Nome="ngModel" >
+  
+
+        <div *ngIf="Telefone.invalid && (Telefone.dirty || Telefone.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="Telefone.errors.required">
+              Telefone é obrigatório.
+          </div>                    
+        </div>
+      </div>
+     
+
+      <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+          Name cannot match alter ego.
+      </div>
+    </div>          
+    <span class="btn btn-success" routerLink="/pedidos-details/0">Pesquisar Cliente</span>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Pedidos.length !== 0">
+    <h3 class="mb-3 text-center">Lista de Pedidos</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>           
+            <th scope="col">TELEFONE</th>
+            <th scope="col">ENDEREÇO</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Pedido of Pedidos">
+            <td>{{Pedido.idcliente}}</td>
+            <td>{{Pedido.nome}}</td>            
+            <td>{{Pedido.telefone}}</td>                     
+            <td>
+              <span class="btn btn-success" routerLink="/cliente-details/{{cliente.idcliente}}">Editar</span> &nbsp;
+              <span class="btn btn-danger" (click)="deletecliente(cliente.idcliente)">Apagar</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

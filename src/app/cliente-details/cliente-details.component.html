@@ -1,0 +1,236 @@
+ 
+  <div class="container">
+
+    <h1>Dados do Cliente</h1>
+    <form #HungryPizzaForm="ngForm" appIdentityRevealed>
+      <div [hidden]="HungryPizzaForm.submitted">
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input id="Nome" name="Nome" class="form-control"
+                  required maxlength="150" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.nome" #Nome="ngModel" >
+  
+            <div *ngIf="Nome.invalid && (Nome.dirty || Nome.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="Nome.errors.required">
+                  Nome é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+  
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="CPF">CPF</label>
+            <input id="CPF" name="CPF" class="form-control"
+                  required type="number" maxlength="15" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.cpf" #CPF="ngModel" >
+  
+            <div *ngIf="CPF.invalid && (CPF.dirty || CPF.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="CPF.errors.required">
+                  CPF é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="dtnascimento">Data de Nascimento</label>
+            <input id="dtnascimento" type="date" value="2011-08-19" name="dtnascimento" class="form-control"
+                   appForbiddenName="bob"
+                  [(ngModel)]="Cliente.dtnascimento" #dtnascimento="ngModel" >
+
+
+            <div *ngIf="dtnascimento.invalid && (dtnascimento.dirty || dtnascimento.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="dtnascimento.errors.required">
+                Data de Nascimento é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" class="form-control"
+                  required maxlength="15" type="number" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.telefone" #telefone="ngModel" >
+  
+            <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="telefone.errors.required">
+                  Telefone é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="logradouro">Endereço</label>
+            <input id="logradouro" name="logradouro" class="form-control"
+                  required maxlength="250" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.logradouro" #logradouro="ngModel" >
+  
+            <div *ngIf="logradouro.invalid && (logradouro.dirty || logradouro.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="logradouro.errors.required">
+                  Endereço é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input id="numero" name="numero" class="form-control"
+                   type="number" maxlength="10" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.numero" #numero="ngModel" >
+  
+            <div *ngIf="numero.invalid && (numero.dirty || numero.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="numero.errors.required">
+                Número é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input id="complemento" name="complemento" class="form-control"
+                   maxlength="50" appForbiddenName="bob"
+                  [(ngModel)]="Cliente.complemento" #complemento="ngModel" >
+           
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input id="bairro" name="bairro" class="form-control"
+                   maxlength="50" required appForbiddenName="bob"
+                  [(ngModel)]="Cliente.bairro" #bairro="ngModel" >
+  
+            <div *ngIf="bairro.invalid && (bairro.dirty || bairro.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="bairro.errors.required">
+                Bairro é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" name="cidade" class="form-control"
+                   maxlength="50" required appForbiddenName="bob"
+                  [(ngModel)]="Cliente.cidade" #cidade="ngModel" >
+  
+            <div *ngIf="cidade.invalid && (cidade.dirty || cidade.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="cidade.errors.required">
+                cidade é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+  
+        <div class="cross-validation" [class.cross-validation-error]="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)">
+          <div class="form-group">
+            <label for="uf">UF</label>
+            <input id="uf" name="uf" class="form-control"
+                   maxlength="50" required appForbiddenName="bob"
+                  [(ngModel)]="Cliente.uf" #uf="ngModel" >
+  
+            <div *ngIf="uf.invalid && (uf.dirty || uf.touched)"
+                class="alert alert-danger">
+  
+              <div *ngIf="uf.errors.required">
+                UF é obrigatório.
+              </div>                    
+            </div>
+          </div>
+         
+  
+          <div *ngIf="HungryPizzaForm.errors?.identityRevealed && (HungryPizzaForm.touched || HungryPizzaForm.dirty)" class="cross-validation-error-message alert alert-danger">
+              Name cannot match alter ego.
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-default"
+                [disabled]="HungryPizzaForm.invalid" (click)="alterarIncluirCliente()">Salvar</button>
+        <button type="button" class="btn btn-default"
+                (click)="HungryPizzaForm.resetForm({})">Limpar</button>
+      </div>
+  
+      <div class="submitted-message" *ngIf="HungryPizzaForm.submitted">
+        <p>You've submitted your hero, {{ HungryPizzaForm.value.name }}!</p>
+        <button (click)="HungryPizzaForm.resetForm({})">Add new hero</button>
+      </div>
+    </form>
+  </div>
+  
+  
+  <!-- 
+  Copyright Google LLC. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license
+  -->
